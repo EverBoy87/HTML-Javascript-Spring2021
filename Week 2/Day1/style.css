@@ -1,0 +1,30 @@
+#blue{
+    color: #0000ff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: underline
+}
+
+body{
+    background-color: cornflowerblue;
+    background-image: url("images/super famicom controller.jpg");
+    background-repeat: no-repeat;
+    Background-size: 200px;
+}
+
+a:visited{
+    font-family: arial;
+    font-weight: solid;
+    color: white;
+    text-decoration: none;
+    background-color: grey;
+    border: 1px solid red;
+}
+
+a:hover{
+    border: none;
+    color: black;
+}
+
+a:active{
+    color: yellow
+}
