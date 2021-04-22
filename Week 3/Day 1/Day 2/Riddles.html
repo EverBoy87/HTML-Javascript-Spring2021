@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multipage example and semantic elements</title>
+    <!--Add Google Fonts before stylesheet-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/Biostyle.css">
+</head>
+
+<body>
+    <div id="main-container">
+        <header>
+            <h1>Bio Example Lab</h1>
+        </header>
+        <nav>
+            <a href="Index.html" class="btn">Bio</a>
+            <a href="Schools.html" class="btn">Schools</a>
+            <a href="Riddles.html" class="btn">Riddles</a>
+        </nav>
+        <section>
+            <h2 class="Title">Riddles</h2>
+            <h2>1. What has to be broken before you can use it?</h2>
+        <span id="Answer1"></span>
+        <br>
+        <button onclick="showAnswer('Answer1','An egg')">Show Answer</button>
+
+        <h2>2. I’m tall when I’m young, and I’m short when I’m old. What am I?</h2>
+        <span id="Answer2"></span>
+        <br>
+        <button onclick="showAnswer('Answer2','A candle')">Show Answer</button>
+        </section>
+       
+        <footer>
+            <p class="copy">&copy;2021 HTML JavaScript Class</p>
+        </footer>
+    </div>
+    <!--Adds to Riddles script-->
+    <script src="js/Riddles.js"></script>
+</body>
+
+</html>
