@@ -21,5 +21,11 @@ shapes.onload = function() {
     ctx.moveTo(800, 800)
     ctx.lineTo(84, 548)
     ctx.stroke(255,0,0)
-    
+
+    //Draw a cricle
+    ctx.beginPath()
+    ctx.arc(400, 300, 50, 0  (3 * Math.PI) / 2, false)
+    ctx.lineTo(400, 300)
+    ctx.closePath()
+    ctx.fill (ffff00)
 }

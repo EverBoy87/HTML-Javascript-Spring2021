@@ -1,0 +1,11 @@
+html, body{
+    display: flex;
+    justify-content: center;
+}
+
+canvas{
+    border: 5px dashed yellow;
+    background-image: url(images/carGameBackgroundImage.jpg);
+}
+
+

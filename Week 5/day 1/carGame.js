@@ -3,7 +3,7 @@ var ctx = canvas.getContext('2d')
 
 var timer = requestAnimationFrame(main)
 
-var xpos = 10
+var xpos = 20
 
 var start =  58
 var finish = 956
@@ -12,21 +12,21 @@ var finish = 956
 var gameOver = true
 
 //variable for large sprites
-var vehicle = new Image()
-vehicle.src = 'images/vehicle.png'
+var mario = new Image()
+mario.src = 'images/mario3.png'
 
-vehicle.onload = function(){
+mario.onload = function(){
     main();
 }
 
     //Fuel variable
-    var startFuel = randomNumber(850, 950)
+    var startFuel = randomNumber(600, canvas.width)
     var fuel = startFuel
-    var fullBarWidth = 512
+    var fullBarWidth = 300
 
     //count down
     var sec = 5
-    var fps = 100
+    var fps = 30
     var frames = fps
 
 
@@ -42,8 +42,8 @@ function main(){
     //clear canvas
     ctx.clearRect(0,0, canvas.width, canvas.height)
     if(gameOver){
-        ctx.fillStyle = "white"
-        ctx.font = "30px 'Source Sans Pro'"
+        ctx.fillStyle = "black"
+        ctx.font = "30px Arial"
         ctx.textAlign = "center"
         ctx.fillText("Press Space to Start", canvas.width/2, canvas.height/2)
     }
@@ -106,34 +106,31 @@ function keyPressUp(e){
 }
 
 function drawStartLine(){
-    ctx.fillStyle = "white"
+    ctx.fillStyle = "black"
     ctx.fillRect(start, 50, 10, 500)
 }
 
 function drawFinishLine(){
-    ctx.fillStyle = "red"
-    ctx.strokeStyle = "orange"
-    ctx.lineWidth = "3"
+    ctx.fillStyle = "black"
     ctx.fillRect(finish, 50, 10, 500)
-    ctx.strokeRect(finish, 50, 10, 500)
 }
 
 function drawCar(){
     ctx.fillStyle = "red"
-    ctx.fillRect(xpos, canvas.height/2, 0, 0)
+    ctx.fillRect(xpos, canvas.height/2,30,20)
 }
 
 function drawCarImage(){
-    ctx.drawImage(vehicle, xpos, canvas.height/2-30, 50, 50)
+    ctx.drawImage(mario, xpos, canvas.height/2-30, 30, 50)
 }
 
 function drawFuelBar(){
     var barCurrentWidth = fullBarWidth * getFuelPercentage()
 
-    ctx.fillStyle = "grey"
+    ctx.fillStyle = "black"
     ctx.fillRect(start, 30, fullBarWidth, 10)
     if(fuel>0){
-        ctx.fillStyle = "green"
+        ctx.fillStyle = "red"
         ctx.fillRect(start, 30, barCurrentWidth, 10)
     }
 }
@@ -143,8 +140,8 @@ function getFuelPercentage(){
 }
 
 function drawFuelText(){
-    ctx.fillStyle = "white"
-    ctx.font = "25px Source Sans Pro"
+    ctx.fillStyle = "black"
+    ctx.font = "25px Arial"
     ctx.fillText(fuel,start,25);
 }
 
@@ -157,8 +154,8 @@ function runStartTimer(){
 }
 
 function drawStartTimer(){
-    ctx.fillStyle = "white"
-    ctx.font = "35px Reggae One"
+    ctx.fillStyle = "black"
+    ctx.font = "25px Arial"
     ctx.textAlign = "center"
     ctx.fillText(sec, canvas.width/2, canvas.height/2)
 }
@@ -169,13 +166,13 @@ function randomNumber(high, low){
 
 function drawResults(){
     if(xpos > finish){
-        ctx.fillStyle = "white"
-        ctx.font = "25px Reggae One"
+        ctx.fillStyle = "black"
+        ctx.font = "25px Arial"
         ctx.textAlign = "center"
-        ctx.fillText("You made it to the finish line, you win!", canvas.width/2, canvas.height/2);
+        ctx.fillText("You made it to the finish, you win!", canvas.width/2, canvas.height/2);
     }else{
-        ctx.fillStyle = "white"
-        ctx.font = "25px Reggae One"
+        ctx.fillStyle = "black"
+        ctx.font = "25px Arial"
         ctx.textAlign = "center"
         ctx.fillText("You ran out of fuel, you lose!", canvas.width/2, canvas.height/2);
     }
