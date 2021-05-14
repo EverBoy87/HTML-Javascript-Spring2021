@@ -1,5 +1,5 @@
 var canvas = document.querySelector('canvas')
-var ctx =  canvas.getContext('2d')
+var ctx = canvas.getContext('2d')
 
 var gravity = 1
 var friction = 0.6
