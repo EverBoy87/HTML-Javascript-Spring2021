@@ -9,11 +9,12 @@ var gameStates = []
 var currentState = 0
 var score = 0
 var highScore = 0
+var angle
 
 
 //utility functions
-function randomRange(low, high){
-    return Math.random() * (low-high) + high
+function randomRange(high, low){
+    return Math.random() * (high-low) + low
 }
 
 function gameStart(){
@@ -42,6 +43,7 @@ function Asteroid(){
         ctx.closePath()
         ctx.fill()
         ctx.restore()
+        ctx.rotate(angle, 180)
 
     }
 
@@ -55,16 +57,16 @@ document.addEventListener("keyup", pressKeyUp)
 
 function pressKeyDown(e){
     if (!gameOver) {
-        if (e.keyCode == 65) {
+        if (e.keyCode == 87) {
             ship.up = true
         }
-        if (e.keyCode == 87) {
+        if (e.keyCode == 65) {
             ship.left = true
         }
-        if (e.keyCode == 83) {
+        if (e.keyCode == 68) {
             ship.right = true
         }
-        if (e.keyCode == 68) {
+        if (e.keyCode == 83) {
             ship.down = true
         }
     }
@@ -103,16 +105,16 @@ function pressKeyDown(e){
 
 function pressKeyUp(e){
     if(!gameOver){
-        if (e.keyCode == 65) {
+        if (e.keyCode == 87) {
             ship.up = false
         }
-        if (e.keyCode == 87) {
+        if (e.keyCode == 65) {
             ship.left = false
         }
-        if (e.keyCode == 83) {
+        if (e.keyCode == 68) {
             ship.right = false
         }
-        if (e.keyCode == 68) {
+        if (e.keyCode == 83) {
             ship.down = false
         } 
     }
@@ -219,14 +221,14 @@ gameStates[1] = function(){
     ctx.fillText("Score: " + score.toString(), canvas.width - 150, 30)
     ctx.restore()
 
-    //Horizontal 
+    //Vertical movement 
     if(ship.up){
         ship.vx = -10
     }else{
         ship.vx = 3
     }
     
-    //vertical
+    //Horizontal movement
     if(ship.left){
         ship.vy = -3
     }else if(ship.right){
@@ -239,9 +241,9 @@ gameStates[1] = function(){
     for(var i = 0; i < asteroids.length; i++){
         var dY = ship.y - asteroids[i].y
         var dX = ship.x - asteroids[i].x
-        var distance = Math.sqrt((dX*dX)+(dY*dY))
+        var distance = Math.sqrt((dY*dY)+(dX*dX))
 
-        if(detectCollision(distance, (ship.h/2 + asteroids[i].radius))){
+        if(detectCollision(distance, (ship.w/2 + asteroids[i].radius))){
             console.log("hit asteroid")
             gameOver = true
             currentState = 2
@@ -264,7 +266,7 @@ gameStates[1] = function(){
         ship.drawShip()
     }
 
-    while(asteroids.length > numAsteroids){
+    while(asteroids.length < numAsteroids){
         asteroids.push(new Asteroid())
     }
 }
