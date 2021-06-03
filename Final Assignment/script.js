@@ -11,7 +11,14 @@ var score = 0
 var highScore = 0
 var angle
 
+var newShip = new Image()
+newShip.src = 'images/ship.png'
 
+newShip.onload = function(){
+    playerShip();
+}
+
+drawShipImage()
 //utility functions
 function randomRange(high, low){
     return Math.random() * (high-low) + low
@@ -30,9 +37,9 @@ function gameStart(){
 //Constructor Function for Asteroid Class
 function Asteroid(){
     this.radius = randomRange(15,2)
-    this.x = randomRange(canvas.width - this.radius, this.radius)
-    this.y = randomRange(canvas.height - this.radius, this.radius) - canvas.height
-    this.vy = randomRange(10, 5)
+    this.x = randomRange(canvas.width - this.radius, this.radius) + canvas.width
+    this.y = randomRange(canvas.height - this.radius, this.radius)
+    this.vx = randomRange(10, 5)
     this.color = "white"
 
     this.drawAsteroid = function(){
@@ -138,6 +145,7 @@ function PlayerShip(){
     this.drawShip = function(){
        ctx.save()
         ctx.translate(this.x, this.y)
+        ctx.rotate(90 * Math.PI/180)
         if(this.up || this.left || this.right){
             ctx.save()
             //Changes the drawing values to animate the flame
@@ -169,7 +177,11 @@ function PlayerShip(){
         ctx.fill();
         ctx.restore() 
     }
+    function playerShip(){
+        ctx.drawShipImage(vehicle, 0, 0)
 
+    }
+    
     this.move = function(){
         this.y += this.vy
         this.x += this.vx
@@ -200,6 +212,7 @@ function PlayerShip(){
 }
 
 //Main Screen
+
 gameStates[0] = function(){
     ctx.save()
     ctx.font = "30px Arial"
@@ -222,17 +235,17 @@ gameStates[1] = function(){
     ctx.restore()
 
     //Vertical movement 
-    if(ship.up){
-        ship.vx = -10
+    if(ship.right){
+        ship.vx = 15
     }else{
-        ship.vx = 3
+        ship.vx = -5
     }
     
     //Horizontal movement
-    if(ship.left){
-        ship.vy = -3
-    }else if(ship.right){
-        ship.vy = 3
+    if(ship.up){
+        ship.vy = -10
+    }else if(ship.down){
+        ship.vy = 10
     }else{
         ship.vy = 0
     }
@@ -252,12 +265,12 @@ gameStates[1] = function(){
         }
 
 
-        if(asteroids[i].x > canvas.width + asteroids[i].radius){
+        if(asteroids[i].x < -asteroids[i].radius){
             asteroids[i].y = randomRange(canvas.height + asteroids[i].radius, asteroids[i].radius)
             asteroids[i].x = randomRange(canvas.width + asteroids[i].radius, asteroids[i].radius) +  canvas.width
         }
         if(!gameOver){
-            asteroids[i].y += asteroids[i].vy
+            asteroids[i].x -= asteroids[i].vx
             asteroids[i].drawAsteroid()
         }
     }
