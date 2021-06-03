@@ -2,7 +2,13 @@ html,body{
     display: flex;
     justify-content: center;
     background-color: black;
+    background-image: url(images/space.jpg);
 }
 #canvas{
-    border: 1px solid green;
+    border: 2px solid green;
+}
+
+#container{
+    color: white;
+    background-color: darkslateblue;
 }
