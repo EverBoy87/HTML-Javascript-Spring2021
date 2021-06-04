@@ -11,14 +11,7 @@ var score = 0
 var highScore = 0
 var angle
 
-var newShip = new Image()
-newShip.src = 'images/ship.png'
 
-newShip.onload = function(){
-    playerShip();
-}
-
-drawShipImage()
 //utility functions
 function randomRange(high, low){
     return Math.random() * (high-low) + low
@@ -177,11 +170,7 @@ function PlayerShip(){
         ctx.fill();
         ctx.restore() 
     }
-    function playerShip(){
-        ctx.drawShipImage(vehicle, 0, 0)
 
-    }
-    
     this.move = function(){
         this.y += this.vy
         this.x += this.vx

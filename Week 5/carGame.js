@@ -16,7 +16,7 @@ var vehicle = new Image()
 vehicle.src = 'images/vehicle.png'
 
 vehicle.onload = function(){
-    main();
+    main()
 }
 
     //Fuel variable
