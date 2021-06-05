@@ -1,21 +1,24 @@
 body,html{
     display: flex;
     justify-content: center;
-    background-color: #999999;
+    background-color: #0c0c0c;
 }
 
 #Container{
     width: 980px;
     padding: 10px;
-    border: 1px solid black;
+    border: 3px solid rgb(51, 50, 50);
     border-radius: 5px;
+    color: white;
+    background-image: url(Images/neit.jpg);
 }
 
 header{
     width: 960px;
     height: 60px;
     padding: 10px;
-    background-color: #333333;
+    background-color: #0b18ca5b;
+    border: 2px solid white;
     color: whitesmoke;
     text-align: center;
     line-height: 50px;
@@ -31,26 +34,27 @@ h1{
 nav{
     width: 980px;
     height: 50px;
-    background-color: black;
-    border-top: 1px solid white;
+    background-color: #0b18ca5b;
+    border: 2px solid white;
     display: flex;
     justify-content: center;
+    transform: rotate(5deg);
     
 }
 .btn{
     width: 100px;
-    height: 50px;
-    background-color: rgb(28, 11, 139);
+    height: 20px;
+    background-color: #0000006b;
     color: whitesmoke;
     margin-right: 5px;
     text-align: center;
-    line-height: 50px;
+    line-height: 65px;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .btn:hover{
-    background-color: #333333;
+    background-color: #3b0303dc;
 }
 
 section{
@@ -62,10 +66,23 @@ section{
 }
 
 .Title{
-    background-color: #444444;
+    background-color: #0b18ca5b;
+    border: 1px solid white;
     color: whitesmoke;
     font-family: 'Rock Salt', cursive;
     padding: 5px 0px 5px 5px;
+    width: 250px;
+    text-align: center;
+}
+
+.hobby{
+    background-color: #0b18ca5b;
+    border: 1px solid white;
+    color: whitesmoke;
+    font-family: 'Rock Salt', cursive;
+    padding: 5px 0px 5px 5px;
+    width: 250px;
+    text-align: center;
 }
 
 aside{
@@ -78,4 +95,28 @@ aside{
 footer{
     width: 980px;
     clear: both;
+}
+
+#main-container{
+    width: 980px;
+    padding: 10px;
+    border: 3px solid rgb(51, 50, 50);
+    border-radius: 5px;
+    color: white;
+    background-image: url('Images/neit.jpg');
+}
+
+.vg{
+    font-size: 20px;
+    font-family: 'Rock Salt', cursive;
+}
+
+.fsn{
+    font-size: 20px;
+    font-family: 'Rock Salt', cursive;
+}
+
+.bmk{
+    font-size: 20px;
+    font-family: 'Rock Salt', cursive;
 }
